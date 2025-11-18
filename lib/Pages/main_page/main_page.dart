@@ -82,8 +82,40 @@ class _MainPageState extends State<MainPage> {
         ),
         appBar: AppBar(title: Text('Task List')),
         body: Container(
-          
+          child: Column(
+            children: [
+              Container(
+                child: Row(
+
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _tarefas.length,
+                  itemBuilder: (BuildContext bc,int index) {
+                    var tarefa = _tarefas[index];
+                    return Dismissible(
+                      key: Key(tarefa.getId()), 
+                      onDismissed: (direction) async{
+                        await tarefaRepository.removeTarefa(tarefa.getId());
+                        ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Tarefa '${tarefa.getDescricao()}' removida"))
+                      );
+                      setState(() {
+                        obterTarefas();
+                      });
+                      },
+                      child: ListTile(
+                        title: Text(tarefa.getDescricao()),
+                      ),
+                      );
+                  },
+                )
+              ),
+            ],
+          ),
         ),
+        
       )
     );
   }
