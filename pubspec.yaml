@@ -98,4 +98,4 @@ flutter:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "lib/assets/images/todo.png"
+  image_path: "lib/assets/images/tasklist.png"
