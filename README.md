@@ -1,8 +1,10 @@
 <div align="center">
     <h1>🚀 To-Do Simples: Meu Início em Flutter! 💙</h1>
     <p>Este é o meu primeiro projeto pessoal em Flutter, uma lista de tarefas simples e funcional.</p>
-    
-    <img src="/lib/assets/images/printapp.jpeg" width="300" />
+</div>
+
+<div align="center">
+    <img src="lib/assets/images/printapp.jpeg" />
 </div>
 
 ---
@@ -41,7 +43,3 @@ Para executar este projeto em sua máquina, você precisa ter o **Flutter SDK** 
 Ainda estou aprendendo e pretendo expandir o projeto no futuro com novas funcionalidades!
 
 ---
-
-<div align="center">
-    <img src="lib/assets/images/tasklist.png" />
-</div>
