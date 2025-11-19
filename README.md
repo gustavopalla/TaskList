@@ -3,10 +3,6 @@
     <p>Este é o meu primeiro projeto pessoal em Flutter, uma lista de tarefas simples e funcional.</p>
 </div>
 
-<div align="center">
-    <img src="lib/assets/images/printapp.jpeg widht=300" />
-</div>
-
 ---
 
 ### 👋 Olá! :D
