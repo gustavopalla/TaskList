@@ -2,9 +2,7 @@
     <h1>🚀 To-Do Simples: Meu Início em Flutter! 💙</h1>
     <p>Este é o meu primeiro projeto pessoal em Flutter, uma lista de tarefas simples e funcional.</p>
     
-    <br>
-    
-    <img src="URL_DO_SEU_SCREENSHOT_OU_GIF_AQUI" alt="Screenshot do Aplicativo Lista de Tarefas em Flutter" width="300" />
+    <img src="/lib/assets/images/printapp.jpeg" width="300" />
 </div>
 
 ---
