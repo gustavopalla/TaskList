@@ -1,16 +1,8 @@
-# task_list
+Olá :D
 
-A new Flutter project.
+Este é o meu primeiro projeto pessoal em Flutter. É uma lista de tarefas simples como qualquer outra.
+Porém decidi começar com ela porque todo mundo tem que começar por algum lugar.
+Então desenvolvi um App de Lista de Tarefas no qual permite que você crie tarefas e consiga visualizar quantas
+estão não concluídas e quantas foram concluídas e também permite filtrar por esses status.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Além disso utilizei do pacote Hive que permite salvar localmente agindo como se fosse um Banco de dados.
