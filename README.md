@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-    <img src="lib/assets/images/printapp.jpeg" />
+    <img src="lib/assets/images/printapp.jpeg widht=300" />
 </div>
 
 ---
