@@ -1,16 +1,17 @@
-import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
+part 'tarefa.g.dart'; 
 
+@HiveType(typeId: 0)
 class Tarefa {
 
-  final String _id = UniqueKey().toString();
+  
+  @HiveField(0) 
   String _descricao = "";
+  @HiveField(1) 
   bool _concluido = false;
 
   Tarefa(this._descricao, this._concluido);
 
-  String getId (){
-    return _id;
-  }
 
   String getDescricao (){
     return _descricao;
@@ -27,7 +28,4 @@ class Tarefa {
   void setConcluido(bool concluido){
     _concluido = concluido;
   }
-
-
-
 }

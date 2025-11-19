@@ -1,35 +1,42 @@
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:task_list/Model/Tarefa/tarefa.dart';
 
-class TarefaRepository {
-  final List<Tarefa> _tarefas = [];
+typedef TarefaComChave = MapEntry<dynamic, Tarefa>;
 
-  Future<void> adicionarTarefa(Tarefa tarefa) async{
-    await Future.delayed(Duration(milliseconds: 200));
-    _tarefas.add(tarefa);
+class TarefaRepository {
+  
+  static const String _boxName = 'tarefasBox';
+
+  late Box<Tarefa> _tarefaBox;
+
+  Future<void> openBox() async{
+    if(!Hive.isAdapterRegistered(0)){
+      Hive.registerAdapter(TarefaAdapter()); 
+    }
+    _tarefaBox = await Hive.openBox<Tarefa>(_boxName);
   }
 
-  Future<void> alterarTarefa(String id, bool concluido) async{
-    await Future.delayed(Duration(milliseconds: 0));
-    _tarefas.where((tarefa) => tarefa.getId() == id).first.setConcluido(concluido);
+  Future<void> adicionarTarefa(Tarefa tarefa) async{
+    await _tarefaBox.add(tarefa);
+  }
+  Future<List<TarefaComChave>> listarTarefasComChave() async{
+    final Map<dynamic, Tarefa> tarefasMap = _tarefaBox.toMap();
+    return tarefasMap.entries.toList();
+  }
+  Future<void> alterarTarefa(dynamic key, bool concluido) async{
+    final Tarefa? tarefa = _tarefaBox.get(key);
+    
+    if (tarefa != null) {
+      tarefa.setConcluido(concluido); 
+      await _tarefaBox.put(key, tarefa);
+    }
   }
 
   Future<List<Tarefa>> listarTarefas() async{
-    await Future.delayed(Duration(milliseconds: 100));
-
-    return _tarefas;
-
+    return _tarefaBox.values.toList();
   }
-
-  Future<List<Tarefa>> listarNaoConcluidas() async{
-    await Future.delayed(Duration(milliseconds: 100));
-
-    return _tarefas.where((tarefa) => !tarefa.getConcluido()).toList();
+  
+  Future<void> removeTarefa(dynamic key) async{
+    await _tarefaBox.delete(key);
   }
-
-  Future<void> removeTarefa(String id) async{
-    await Future.delayed(Duration(milliseconds: 100));
-    return _tarefas.removeWhere((tarefa) => tarefa.getId() == id);
-  }
-
-
 }
