@@ -11,7 +11,7 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) => TarefaProvider(), 
-      child: const MyApp(), // MyApp é o widget raiz
+      child: const MyApp(),
     ),
   );
 }

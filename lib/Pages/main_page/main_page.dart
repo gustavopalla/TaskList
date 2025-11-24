@@ -53,13 +53,10 @@ class MainPage extends StatelessWidget {
                     style: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic),),
                   ),
                 ),
-                // --- LISTA ---
                 Expanded(
-                  // Usa o estado de loading do Provider
                   child: provider.isLoading 
                       ? const Center(child: CircularProgressIndicator())
                       : ListView.builder(
-                    // Usa a lista já filtrada
                     itemCount: provider.tarefasExibidas.length,
                     itemBuilder: (BuildContext bc,int index) {
                       final tarefaComChave = provider.tarefasExibidas[index];
@@ -69,7 +66,6 @@ class MainPage extends StatelessWidget {
                       return Dismissible(
                         key: Key(key.toString()), 
                         onDismissed: (direction) {
-                          // Chama o método de remoção do Provider
                           provider.removerTarefa(tarefaComChave); 
                           
                           ScaffoldMessenger.of(context).showSnackBar(
